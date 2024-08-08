@@ -1,0 +1,144 @@
+.container {
+    width: 80%;
+    margin: 0 auto;
+    padding: 20px;
+    background-color: #fff;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+
+}
+
+h1 {
+    text-align: center;
+}
+
+.categories {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 20px;
+}
+
+.category {
+    flex: 1 1 calc(33% - 40px);
+    box-sizing: border-box;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    background-color: #fff;
+}
+
+.category h2 {
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.product-item {
+    border-bottom: 1px solid #ddd;
+    padding: 10px 0;
+}
+
+.product-item img {
+    max-width: 50%;
+    height: auto;
+}
+
+.product-item h3 {
+    margin: 10px 0;
+}
+
+.product-item p {
+    margin: 5px 0;
+}
+
+.quantity-selector {
+    width: 60px;
+    margin: 10px 0;
+}
+
+button {
+    background-color: #28a745;
+    color: #fff;
+    border: none;
+    padding: 10px 15px;
+    font-size: 16px;
+    cursor: pointer;
+    border-radius: 5px;
+    margin-right: 10px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.cart {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    width: 300px;
+}
+
+.cart-content {
+    background-color: #fff;
+    border: 1px solid #ddd;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0,0,0,0.1);
+    display: none;
+}
+
+.cart-content.open {
+    display: block;
+}
+
+#checkout-button {
+    background-color: #007bff;
+}
+
+#checkout-button:hover {
+    background-color: #0056b3;
+}
+
+#add-to-favorites {
+    background-color: #ff7f50;
+}
+
+#add-to-favorites:hover {
+    background-color: #ff6347;
+}
+
+#apply-favorites {
+    background-color: #ff4500;
+}
+
+#apply-favorites:hover {
+    background-color: #dc143c;
+}
+
+/* ================ RESPONSIVE & BREAKPOINTS ============= */
+@media (max-width: 1080px){
+    .container{
+        width: 90%;
+        margin: 0 auto;
+    }
+    section{
+        padding: 3rem 0 2rem;
+    }
+    .shop{
+        margin-top: 2rem;
+    }
+}
+
+/* For Medium Devices */
+@media (max-width: 400px){
+    .cart{
+        width: 320px;
+    }
+}
+
+/* For Small Devices */
+@media (max-width: 360px){
+    .shop{
+        margin-top: 1rem;
+    }
+    .cart{
+        width: 280px;
+    }
+}

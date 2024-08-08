@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!---title==========-->
+    <title>LankaMart Superstore</title>
+
+    <!---stylesheet===============----->
+<link rel="stylesheet" href="style.css">
+
+<!--using-font-awesome==-->
+
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css" 
+ntegrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+<!---import-font-family-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Platypi:ital,wght@0,300..800;1,300..800&family=Sedan+SC&display=swap" rel="stylesheet">
+
+<!----fav-icon=======-->
+<link rel="shortcut icon" href="images/logo.png">
+
+
+</head>
+
+
+<!--all-pictures-get by unplash-website-->
+<body>
+<!--navigation=======--->
+<nav class="navigation">
+
+    <div class="logo"><img src="images/logo.png" alt="bg"></div>
+
+<header>
+<!--menu======-->
+<ul class="menu">
+    <li><a href="index.html" class="active">Home</a></li>
+    <li><a href="about us.html">AboutUs</a></li>
+    <li class="dropdown">
+        <a href="#">Products</a>
+        <ul class="dropdown-menu">
+          <li><a href="dairy.html">Dairy product</a></li>
+          <li><a href="vegetables.html">Vegetables & Fruits</a></li>
+          <li><a href="cosmetics.html">Cosmetics</a></li>
+        </ul>
+      </li>
+    <li><a href="order.html">Order</a></li>
+    <li><a href="registering.html">Register</a></li>
+</ul>
+</header>
+</nav>
+<!--navigation--end->
+
+
+<!-small-banner-->
+<div class="banner">
+    <img src="images/samantha-borges-EeS69TTPQ18-unsplash.jpg" alt="Banner image">
+    <div class="banner-content">
+    <h2>Lanka<span>Mart</span></h2>
+</div>
+  </div>
+
+  <main>
+    <section id="Membership" class="membership-level">
+        <h2>Bronze</h2>
+        <ol>
+            <li>Exclusive discounts on select items.</li>
+            <li>Accumulate points with every purchase for future discounts.</li>
+            <li>Access to special promotions and sales events.</li>
+            <li>Birthday discounts or freebies.</li>
+            <li>Monthly newsletters with recipes, cooking tips, and exclusive offers.</li>
+        </ol>   
+    </section>
+
+    <section id="Membership" class="membership-level">
+        <h2>Silver</h2>
+        <ol>
+            <li>Increased point accumulation rate for purchases.</li>
+            <li>Priority access to new products and limited edition items.</li>
+            <li>Special offers on certain days of the week</li>
+            <li>Dedicated customer service line for quicker assistance.</li>
+            <li>Invitations to exclusive in-store events or cooking workshops</li>
+        </ol>   
+    </section>
+
+    <section id="Membership" class="membership-level">
+        <h2>Gold</h2>
+        <ol>
+            <li>Higher discount percentages on select items.</li>
+            <li>Personalized shopping recommendations based on purchase history.</li>
+            <li>Quarterly reward vouchers based on total spending.</li>
+            <li>Complimentary upgrades on certain products or services.</li>
+            <li>Free home delivery for orders above a certain threshold.</li>
+        </ol>   
+    </section>
+
+    <section id="Membership" class="membership-level">
+        <h2>Platinum</h2>
+        <ol>
+            <li>VIP access to pre-sale events and product launches.</li>
+            <li>Personal shopping assistant available for consultations and special requests.</li>
+            <li>Customized loyalty rewards tailored to individual preferences.</li>
+            <li>Invitations to exclusive culinary experiences or chef-hosted dinners.</li>
+            <li>Priority reservations and seating at affiliated restaurants or dining events.</li>
+        </ol>   
+    </section>
+
+</main>
+
+<div class="register">
+    <h1>Loyalty Registeration</h1><br>
+      <div class="form-group">
+        <label for="name">First Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+
+      <div class="form-group">
+        <label for="name">Second Name:</label>
+        <input type="text" id="name" name="name" required>
+      </div>
+  
+      <div class="form-group">
+        <label for="email">Email:</label>
+        <input type="email" id="email" name="email" required>
+      </div>
+
+      <div class="form-group">
+      <label for="email">Birthday:</label>
+      <input type="date" name="dob" required>
+      </div><br>
+
+      <div class="form-group">
+<label for="membership-level">Membership Level:</label>
+<select id="membership-level" name="membership-level">
+  <option value="bronze">Bronze</option>
+  <option value="silver">Silver</option>
+  <option value="gold">Gold</option>
+  <option value="platinum">Platinum</option>
+</select>
+</div>
+
+      <div class="form-group">
+        <label for="email">Mobile No:</label>
+        <input type="tel" id="phone" name="phone" required>
+      </div><br>
+
+      <div class="button-container">
+        <a href="#" class="button-2"  onclick="register()">Register</a>    
+          </div>
+</div>
+<br>
+
+<footer>
+    <div class="footer-container">
+        <!--logo--footer container-->
+        
+        <div class="footer-logo">
+            <a href="#"><img src="images/logo.png" alt="flogo"></a>
+        </div>
+       
+
+        <!--links for footer-->
+        <div class="footer-links">
+            <strong>Links</strong>
+            <ul>
+                <li><a href="about us.html">AboutUs</a></li>
+                <li><a href="order.html">Order</a></li>
+                <li><a href="dairy.html">Dairy</a></li>
+                <li><a href="vegetables.html">Vegetables</a></li>
+                <li><a href="cosmetics.html">Cosmetics</a></li>
+                
+            </ul>
+          
+
+        </div>
+          <!--links for footer-->
+        <div class="footer-links">
+        <strong>Category</strong>
+        <ul>
+            <li><a href="#">Groceries</a></li>
+            <li><a href="#">Food</a></li>
+            <li><a href="#">Beverages</a></li>
+            <li><a href="#">Clothes</a></li>
+            <li><a href="#">Beauty</a></li>
+        </ul>
+    </div>
+   <!--links for footer-->
+   <div class="footer-links-Contact">
+    <strong>Contact</strong>
+    <ul>
+        <li><a href="#"><i class="fa-solid fa-phone"></i>+94 11 23456789</a></li>
+        <li><a href="#"><i class="fa-solid fa-envelope"></i>LankaMart@gmail.com</a></li>
+    </ul>
+</div>
+    <div class="footer-links">
+        <strong>Social</strong>
+        <ul>
+            <li><a href="https://www.facebook.com/facebook-page/"><i class="fa-brands fa-facebook"></i>
+            </a></li>
+            <li><a href="https://www.twitter.com/facebook-page/"><i class="fa-brands fa-instagram"></i></a></li>
+            <li><a href="https://www.instagram.com/facebook-page/"><i class="fa-brands fa-twitter"></i></i></a></li>
+        </ul>
+    </div>
+</div>
+<p class="copywrite">&copy; 2023 LankaMart. All rights reserved.</p>
+</footer>
+
+
+
+
+</body>
+</html>
