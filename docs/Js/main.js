@@ -1,5 +1,4 @@
 let cart = [];
-let cartVisible = false;
 let favorites = [];
 
 // Initialize cart and favorites from localStorage
@@ -16,14 +15,19 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 });
 
-function addToCart(productName, productPrice, quantityId) {
-    const quantity = parseFloat(document.getElementById(quantityId).value); // Use parseFloat for fractional quantities
+function addToCart(productName, productPrice, quantityId, productImage) {
+    const quantity = parseFloat(document.getElementById(quantityId).value);
+
+    if (quantity <= 0) {
+        alert('Please enter a valid quantity');
+        return;
+    }
 
     let item = cart.find(item => item.name === productName);
     if (item) {
         item.quantity += quantity;
     } else {
-        cart.push({ name: productName, price: productPrice, quantity: quantity });
+        cart.push({ name: productName, price: productPrice, quantity: quantity, image: productImage });
     }
 
     localStorage.setItem('cart', JSON.stringify(cart));
@@ -40,10 +44,11 @@ function updateCart() {
         const itemTotal = item.price * item.quantity;
         subtotal += itemTotal;
         cartItemsContainer.innerHTML += `
-            <p>
-                ${item.name} x ${item.quantity} - Rs${itemTotal.toFixed(2)}
+            <div class="cart-item">
+                <img src="${item.image}" alt="${item.name}" width="50" height="50">
+                <p>${item.name} x ${item.quantity} - Rs${itemTotal.toFixed(2)}</p>
                 <button onclick="removeFromCart(${index})">Remove</button>
-            </p>`;
+            </div>`;
     });
 
     cartSubtotal.innerText = `Subtotal: Rs${subtotal.toFixed(2)}`;
@@ -55,50 +60,35 @@ function removeFromCart(index) {
     updateCart();
 }
 
-function toggleCart() {
-    cartVisible = !cartVisible;
-    const cartContent = document.getElementById('cart-content');
-    const cartToggleButton = document.getElementById('cart-toggle');
-
-    if (cartVisible) {
-        cartContent.classList.add('open');
-        cartToggleButton.innerText = 'Close Cart';
-    } else {
-        cartContent.classList.remove('open');
-        cartToggleButton.innerText = 'Open Cart';
-    }
-}
-
-function addToFavorites(productElement) {
-    const productName = productElement.querySelector('.product-name').innerText;
-    const productPrice = productElement.querySelector('.product-price').innerText;
-
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    let item = favorites.find(item => item.name === productName);
-    if (!item) {
-        favorites.push({ name: productName, price: productPrice });
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        alert('Product added to favorites!');
-    } else {
-        alert('Product is already in favorites.');
-    }
-}
-
-function applyFavorites() {
-    let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-
-    if (favorites.length === 0) {
-        alert('No favorites to apply.');
+function addToFavorites() {
+    if (cart.length === 0) {
+        alert('Your cart is empty.');
         return;
     }
 
-    favorites.forEach(fav => {
-        let item = cart.find(cartItem => cartItem.name === fav.name);
-        if (item) {
-            item.quantity += 1; // Apply favorite by adding one more item to the cart
+    cart.forEach(cartItem => {
+        let favoriteItem = favorites.find(favItem => favItem.name === cartItem.name);
+        if (!favoriteItem) {
+            favorites.push({ name: cartItem.name, price: cartItem.price, image: cartItem.image });
+        }
+    });
+
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+    alert('Products in your cart have been added to favorites!');
+}
+
+function applyFavorites() {
+    if (favorites.length === 0) {
+        alert('You have no favorites saved.');
+        return;
+    }
+
+    favorites.forEach(favItem => {
+        let cartItem = cart.find(item => item.name === favItem.name);
+        if (cartItem) {
+            alert(`Product "${favItem.name}" is already in the cart.`);
         } else {
-            cart.push({ ...fav, quantity: 1 });
+            cart.push({ ...favItem, quantity: 1 });
         }
     });
 
@@ -107,7 +97,13 @@ function applyFavorites() {
     alert('Favorites applied to cart!');
 }
 
+function toggleCart() {
+    const cartContent = document.getElementById('cart-content');
+    const cartToggleButton = document.getElementById('cart-toggle');
+    cartContent.classList.toggle('open');
+    cartToggleButton.innerText = cartContent.classList.contains('open') ? 'Close Cart' : 'Open Cart';
+}
+
 document.getElementById('checkout-button').addEventListener('click', () => {
-    // Redirect to the checkout page
     window.location.href = 'checkout.html';
 });

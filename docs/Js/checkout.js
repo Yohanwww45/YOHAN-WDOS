@@ -5,7 +5,10 @@ document.addEventListener('DOMContentLoaded', () => {
     if (cart.length > 0) {
         cartSummary.innerHTML = '<h2>Cart Summary</h2>';
         cart.forEach(item => {
-            cartSummary.innerHTML += `<p>${item.name} x ${item.quantity} - Rs${(item.price * item.quantity).toFixed(2)}</p>`;
+            cartSummary.innerHTML += `<p>
+            <img src="${item.image}" alt="${item.name}" width="50" height="50">
+            ${item.name} x ${item.quantity} - Rs${(item.price * item.quantity).toFixed(2)}
+            </p>`;
         });
     } else {
         cartSummary.innerHTML = '<p>No items in your cart.</p>';
@@ -74,6 +77,6 @@ function showThankYouMessage() {
 
     const today = new Date();
     const deliveryDate = new Date(today);
-    deliveryDate.setDate(today.getDate() + 7); // Assuming 7 days for delivery
+    deliveryDate.setDate(today.getDate() + 4); // Assuming 4 days for delivery
     document.getElementById('delivery-date').innerText = `Estimated Delivery Date: ${deliveryDate.toDateString()}`;
 }

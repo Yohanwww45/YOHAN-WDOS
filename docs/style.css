@@ -830,6 +830,48 @@ color: chartreuse;
 color: rgb(255, 98, 0);
 }
 
+.table-services{
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+}
+
+.table-services thead th{
+  background-color:rgb(164, 161, 161);
+  color: black;
+  text-align: center;
+  padding: 7px;
+}
+
+.table-services tbody tr{
+  border-bottom: 2px solid black;
+  border-top: 2px solid black;
+  border-left: 2px solid black;
+  border-right: 2px solid black;
+}
+
+.table-services tbody tr:nth-of-type(odd){
+  background-color: rgb(234, 232, 232);
+}
+
+.table-services td {
+  padding: 7px;
+  text-align: left;
+}
+
+.table-services tfoot {
+  font-weight: bold;
+}
+
+.table-services tfoot td {
+  text-align: center;
+}
+
+.table-services td:first-child {
+  font-weight: bold;
+}
+/* Table ends here */
+
 /*==Making-Responsive===================================*/
 .menu-icon,
 .menu-btn{
