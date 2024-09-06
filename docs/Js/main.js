@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
     if (savedCart) {
         cart = JSON.parse(savedCart);
         updateCart();
+        cart = [];
     }
 
     const savedFavorites = localStorage.getItem('favorites');
