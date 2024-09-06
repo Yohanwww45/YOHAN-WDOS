@@ -69,7 +69,7 @@ function validateForm() {
 
     return true;
 }
-
+//thankyou message
 function showThankYouMessage() {
     document.getElementById('checkout-form').classList.add('hidden');
     const thankYouMessage = document.getElementById('thank-you-message');

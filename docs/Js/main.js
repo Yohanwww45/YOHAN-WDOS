@@ -15,7 +15,7 @@ document.addEventListener('DOMContentLoaded', () => {
         favorites = JSON.parse(savedFavorites);
     }
 });
-
+//add product to cart
 function addToCart(productName, productPrice, quantityId, productImage) {
     const quantity = parseFloat(document.getElementById(quantityId).value);
 
